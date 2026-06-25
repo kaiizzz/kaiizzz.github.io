@@ -68,6 +68,10 @@ export const copy = {
       ariaLabel: 'Switch to vermillion theme and Chinese',
       hint: '中文',
     },
+    menu: {
+      open: 'Open menu',
+      close: 'Close menu',
+    },
   },
   zh: {
     site: {
@@ -136,6 +140,10 @@ export const copy = {
     themeToggle: {
       ariaLabel: '切换至墨色主题与英文',
       hint: 'EN',
+    },
+    menu: {
+      open: '打开菜单',
+      close: '关闭菜单',
     },
   },
 }
