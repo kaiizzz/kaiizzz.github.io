@@ -2,7 +2,7 @@ export const projects = [
   {
     title: 'ADS-B Aircraft Monitoring and Prediction System',
     description:
-      "My Master's capstone project, a web application that allows users to monitor and predict aircraft movements using ADS-B data. Built with React, Node.js, and TypeScript. (link not available yet)",
+      "My Master's capstone project, a web application that allows users to monitor and predict aircraft movements using ADS-B data. Built with React, Node.js, and TypeScript. Won 2025 Best in Field award at the University of Melbourne Endeavour Exhibition (link not available yet)",
     tags: ['React', 'Node.js', 'TypeScript', 'Machine Learning', 'Natural Language Processing', 'Artificial Intelligence'],
     link: 'https://github.com/kaiizzz/SkyView',
     live: null,
