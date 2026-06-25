@@ -4,8 +4,8 @@ const ThemeContext = createContext(null)
 
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(() => {
-    if (typeof window === 'undefined') return 'zhu'
-    return localStorage.getItem('theme') || 'zhu'
+    if (typeof window === 'undefined') return 'ink'
+    return localStorage.getItem('theme') || 'ink'
   })
 
   useEffect(() => {

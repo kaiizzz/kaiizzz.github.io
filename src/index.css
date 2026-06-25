@@ -7,18 +7,18 @@
 }
 
 :root {
-  --bg: #080606;
+  --bg: #07070d;
   --bg-elevated: rgba(255, 255, 255, 0.03);
   --border: rgba(255, 255, 255, 0.08);
   --border-hover: rgba(255, 255, 255, 0.16);
-  --text: #ece8e6;
-  --text-muted: #9a918d;
-  --accent-1: #c85546;
-  --accent-2: #963d35;
-  --accent-3: #d4a574;
-  --glow-1: 200, 85, 70;
-  --glow-2: 150, 61, 53;
-  --glow-3: 212, 165, 116;
+  --text: #e8e8ef;
+  --text-muted: #8b8b9e;
+  --accent-1: #6366f1;
+  --accent-2: #a855f7;
+  --accent-3: #ec4899;
+  --glow-1: 99, 102, 241;
+  --glow-2: 168, 85, 247;
+  --glow-3: 236, 72, 153;
   --gradient: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-display: 'Outfit', var(--font-sans);
@@ -29,19 +29,6 @@
   --radius-sm: 10px;
   --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
   --transition: 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-[data-theme='ink'] {
-  --bg: #07070d;
-  --text: #e8e8ef;
-  --text-muted: #8b8b9e;
-  --accent-1: #6366f1;
-  --accent-2: #a855f7;
-  --accent-3: #ec4899;
-  --glow-1: 99, 102, 241;
-  --glow-2: 168, 85, 247;
-  --glow-3: 236, 72, 153;
-  --gradient: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
 }
 
 [data-theme='zhu'] {
