@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { featuredProjects } from '../data/projects'
+import { useCopy } from '../hooks/useCopy'
 import ProjectCard from './ProjectCard'
 
 export default function Portfolio() {
+  const { t } = useCopy()
+
   return (
     <section id="portfolio" className="section">
       <motion.div
@@ -14,17 +17,17 @@ export default function Portfolio() {
         transition={{ duration: 0.6 }}
       >
         <div>
-          <span className="section__label">Work</span>
-          <h2 className="section__title">Selected projects</h2>
+          <span className="section__label">{t.portfolio.label}</span>
+          <h2 className="section__title">{t.portfolio.title}</h2>
         </div>
         <Link to="/projects" className="btn btn--ghost portfolio__view-all">
-          View all
+          {t.portfolio.viewAll}
         </Link>
       </motion.div>
 
       <div className="portfolio__grid">
         {featuredProjects.map((project, i) => (
-          <ProjectCard key={project.title} project={project} index={i} />
+          <ProjectCard key={project.link} project={project} index={i} />
         ))}
       </div>
     </section>

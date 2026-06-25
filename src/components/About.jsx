@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion'
 import { site } from '../data/site'
+import { useCopy } from '../hooks/useCopy'
 
 const skills = ['Python', 'React', 'JavaScript', 'TypeScript', 'Node.js', 'Java', 'SQL', 'C#', 'C', 'Ada', 'UI Design', 'Machine Learning', 'Natural Language Processing', 'Artificial Intelligence']
 
 export default function About() {
+  const { t } = useCopy()
+
   return (
     <section id="about" className="section">
       <motion.div
@@ -13,8 +16,8 @@ export default function About() {
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 0.6 }}
       >
-        <span className="section__label">About</span>
-        <h2 className="section__title">A bit about me</h2>
+        <span className="section__label">{t.about.label}</span>
+        <h2 className="section__title">{t.about.title}</h2>
       </motion.div>
 
       <div className="about__layout">
@@ -29,7 +32,7 @@ export default function About() {
             <div className="about__photo-frame">
               <img
                 src={site.photo}
-                alt={`Portrait of ${site.name}`}
+                alt={t.about.photoAlt}
                 className="about__photo"
               />
             </div>
@@ -42,7 +45,7 @@ export default function About() {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            {site.bio.map((paragraph) => (
+            {t.site.bio.map((paragraph) => (
               <p key={paragraph} className="about__bio">{paragraph}</p>
             ))}
           </motion.div>
@@ -55,7 +58,7 @@ export default function About() {
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <h3 className="about__skills-title">Technologies</h3>
+          <h3 className="about__skills-title">{t.about.technologies}</h3>
           <ul className="about__skills-list">
             {skills.map((skill) => (
               <li key={skill} className="tag">{skill}</li>

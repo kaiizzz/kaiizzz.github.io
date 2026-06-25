@@ -1,10 +1,14 @@
 import { motion } from 'framer-motion'
+import { useCopy } from '../hooks/useCopy'
 
 function formatLink(url) {
   return url.replace(/^https?:\/\//, '').replace(/\/$/, '')
 }
 
 export default function ProjectCard({ project, index }) {
+  const { t, pick } = useCopy()
+  const title = pick(project.title)
+
   return (
     <motion.article
       className="card project-card"
@@ -17,9 +21,9 @@ export default function ProjectCard({ project, index }) {
       <div className="project-card__glow" aria-hidden="true" />
       <div className="project-card__header">
         <span className="project-card__index">{String(index + 1).padStart(2, '0')}</span>
-        <h3 className="project-card__title">{project.title}</h3>
+        <h3 className="project-card__title">{title}</h3>
       </div>
-      <p className="project-card__desc">{project.description}</p>
+      <p className="project-card__desc">{pick(project.description)}</p>
       {project.tags.length > 0 && (
         <ul className="project-card__tags">
           {project.tags.map((tag) => (
@@ -48,7 +52,7 @@ export default function ProjectCard({ project, index }) {
             rel="noopener noreferrer"
             className="project-card__link"
           >
-            Live demo
+            {t.projectCard.liveDemo}
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M7 17L17 7M17 7H7M17 7V17" />
             </svg>

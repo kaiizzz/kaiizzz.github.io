@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { navLinks, site } from '../data/site'
+import { useTheme } from '../context/ThemeContext'
+import { useCopy } from '../hooks/useCopy'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
+  const { toggleTheme } = useTheme()
+  const { t } = useCopy()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -21,20 +24,34 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="navbar__inner">
-        <Link to="/" className="navbar__logo">
-          <span className="navbar__logo-dot" />
-          {site.title}
-        </Link>
+        <div className="navbar__brand">
+          <Link to="/" className="navbar__logo">
+            {t.site.title}
+          </Link>
+          <button
+            type="button"
+            className="navbar__zhu"
+            onClick={toggleTheme}
+            aria-label={t.themeToggle.ariaLabel}
+            data-hint={t.themeToggle.hint}
+          >
+            <span className="navbar__zhu-icon" aria-hidden="true" />
+            <span className="navbar__zhu-hint">
+              <span className="navbar__zhu-hint-text">{t.themeToggle.hint}</span>
+              <span className="navbar__zhu-hint-brush" aria-hidden="true" />
+            </span>
+          </button>
+        </div>
         <nav className="navbar__nav">
-          {navLinks.map((link) => {
+          {t.nav.map((link) => {
             const isActive =
               link.to === '/education'
                 ? location.pathname === '/education'
                 : link.to === '/projects'
                   ? location.pathname === '/projects'
-                : link.to === '/#hero'
-                  ? location.pathname === '/' && (!location.hash || location.hash === '#hero')
-                  : location.pathname === '/' && location.hash === link.to.replace('/', '')
+                  : link.to === '/#hero'
+                    ? location.pathname === '/' && (!location.hash || location.hash === '#hero')
+                    : location.pathname === '/' && location.hash === link.to.replace('/', '')
 
             return (
               <Link

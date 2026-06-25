@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { education } from '../data/education'
+import { useCopy } from '../hooks/useCopy'
 
 export default function Education() {
+  const { t, pick } = useCopy()
+
   return (
     <div className="education-page">
       <motion.div
@@ -15,19 +18,17 @@ export default function Education() {
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
-          Back home
+          {t.educationPage.back}
         </Link>
-        <span className="section__label">Education</span>
-        <h1 className="education-page__title">Where I&apos;ve studied</h1>
-        <p className="education-page__intro">
-          My academic background and the institutions that shaped how I think about software and research.
-        </p>
+        <span className="section__label">{t.educationPage.label}</span>
+        <h1 className="education-page__title">{t.educationPage.title}</h1>
+        <p className="education-page__intro">{t.educationPage.intro}</p>
       </motion.div>
 
       <ol className="education-timeline">
         {education.map((item, index) => (
           <motion.li
-            key={`${item.institution}-${item.degree}`}
+            key={`${pick(item.institution)}-${pick(item.degree)}`}
             className="education-timeline__item"
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -41,15 +42,15 @@ export default function Education() {
               <div className="education-card__header">
                 <div>
                   <h2 className="education-card__degree">
-                    {item.degree}
-                    <span className="education-card__field"> · {item.field}</span>
+                    {pick(item.degree)}
+                    <span className="education-card__field"> · {pick(item.field)}</span>
                   </h2>
-                  <p className="education-card__institution">{item.institution}</p>
+                  <p className="education-card__institution">{pick(item.institution)}</p>
                 </div>
-                <span className="education-card__period">{item.period}</span>
+                <span className="education-card__period">{pick(item.period)}</span>
               </div>
-              <p className="education-card__location">{item.location}</p>
-              <p className="education-card__desc">{item.description}</p>
+              <p className="education-card__location">{pick(item.location)}</p>
+              <p className="education-card__desc">{pick(item.description)}</p>
             </article>
           </motion.li>
         ))}

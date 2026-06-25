@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { site } from '../data/site'
+import { useCopy } from '../hooks/useCopy'
+import FlounderyBrand from './FlounderyBrand'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -11,6 +12,8 @@ const fadeUp = {
 }
 
 export default function Hero() {
+  const { t } = useCopy()
+
   return (
     <section id="hero" className="hero">
       <div className="hero__content">
@@ -21,7 +24,7 @@ export default function Hero() {
           animate="visible"
           custom={0}
         >
-          Portfolio
+          {t.hero.eyebrow}
         </motion.p>
 
         <motion.h1
@@ -31,8 +34,8 @@ export default function Hero() {
           animate="visible"
           custom={1}
         >
-          Hi, I'm{' '}
-          <span className="hero__name">{site.name}</span>
+          {t.hero.greeting}{' '}
+          <span className="hero__name">{t.site.name}</span>
         </motion.h1>
 
         <motion.div
@@ -43,19 +46,11 @@ export default function Hero() {
           custom={2}
         >
           <span className="hero__tagline-line">
-            {site.tagline.line1.prefix}
-            <a
-              href={site.flounderyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hero__tagline-brand"
-            >
-              <span className="hero__tagline-company">{site.tagline.line1.company}</span>
-              <img src={site.logo} alt="" className="hero__tagline-logo" />
-            </a>
-            <span className="hero__tagline-suffix">{site.tagline.line1.suffix}</span>
+            {t.site.tagline.line1.prefix}
+            <FlounderyBrand company={t.site.tagline.line1.company} />
+            <span className="hero__tagline-suffix">{t.site.tagline.line1.suffix}</span>
           </span>
-          <span className="hero__tagline-line">{site.tagline.line2}</span>
+          <span className="hero__tagline-line">{t.site.tagline.line2}</span>
         </motion.div>
 
         <motion.div
@@ -66,10 +61,10 @@ export default function Hero() {
           custom={3}
         >
           <a href="#portfolio" className="btn btn--primary">
-            View my work
+            {t.hero.viewWork}
           </a>
           <a href="#contact" className="btn btn--ghost">
-            Get in touch
+            {t.hero.getInTouch}
           </a>
         </motion.div>
       </div>
@@ -80,7 +75,7 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8 }}
       >
-        <span>Scroll</span>
+        <span>{t.hero.scroll}</span>
         <div className="hero__scroll-line" />
       </motion.div>
     </section>
