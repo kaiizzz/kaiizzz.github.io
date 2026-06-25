@@ -1,43 +1,30 @@
 export const site = {
-  title: 'billzhu',
+  title: 'Kailiang Zhu',
   name: 'Kailiang (Bill) Zhu',
-  tagline: 'Building things on the web.',
-  bio: "Hi, I'm Kailiang (Bill) Zhu — a developer who loves crafting clean interfaces and solving interesting problems. This is where I share my work and what I'm learning along the way.",
-  email: 'your.email@example.com',
+  tagline: {
+    line1: { prefix: 'Co-founder of  ', company: '  Floundery' },
+    line2: 'I do software stuff.',
+  },
+  logo: '/Images/logo.svg',
+  flounderyUrl: 'https://floundery.com',
+  photo: '/Images/me.JPEG',
+  bio: [
+    "Hi, I'm Kailiang (Bill) Zhu — I'm a software engineer who loves crafting clean user interfaces and solving interesting problems. This is where I share my work and what I'm learning along the way.",
+    "I'm also the co-founder of Floundery PTY LTD., a software company that specialises in genuine human connections outside of software.",
+    'Currently pursuing a PhD.',
+  ],
+  email: 'billzhu@kailiangzhu.com',
+  location: 'Melbourne, Australia',
   links: {
     github: 'https://github.com/kaiizzz',
-    linkedin: 'https://www.linkedin.com/in/yourprofile/',
+    linkedin: 'https://www.linkedin.com/in/bill-kailiang-zhu-58a140204/',
   },
-  projects: [
-    {
-      title: 'Project One',
-      description:
-        'A full-stack application built with modern tooling. Replace this with your own project description and highlights.',
-      tags: ['React', 'Node.js', 'TypeScript'],
-      github: 'https://github.com/kaiizzz/project-one',
-      live: null,
-    },
-    {
-      title: 'Project Two',
-      description:
-        'An experiment in UI design and interaction. Showcase what you built and why it matters.',
-      tags: ['Vite', 'CSS', 'API'],
-      github: 'https://github.com/kaiizzz/project-two',
-      live: null,
-    },
-    {
-      title: 'Project Three',
-      description:
-        'Open-source tool or library you contributed to. Add links to docs, demos, or write-ups.',
-      tags: ['Python', 'Automation'],
-      github: 'https://github.com/kaiizzz/project-three',
-      live: null,
-    },
-  ],
 }
 
 export const navLinks = [
-  { id: 'about', label: 'About' },
-  { id: 'portfolio', label: 'Work' },
-  { id: 'contact', label: 'Contact' },
+  { label: 'Home', to: '/#hero' },
+  { label: 'About', to: '/#about' },
+  { label: 'Work', to: '/#portfolio' },
+  { label: 'Education', to: '/education' },
+  { label: 'Contact', to: '/#contact' },
 ]

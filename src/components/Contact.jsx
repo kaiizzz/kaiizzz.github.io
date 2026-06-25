@@ -30,6 +30,15 @@ const socials = [
       </svg>
     ),
   },
+  {
+    label: site.location,
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
+        <path d="M12 21s7-4.5 7-11a7 7 0 10-14 0c0 6.5 7 11 7 11z" />
+        <circle cx="12" cy="10" r="2.5" />
+      </svg>
+    ),
+  },
 ]
 
 export default function Contact() {
@@ -49,18 +58,34 @@ export default function Contact() {
         </p>
 
         <div className="contact__links">
-          {socials.map((social) => (
-            <a
-              key={social.label}
-              href={social.href}
-              target={social.label === 'Email' ? undefined : '_blank'}
-              rel={social.label === 'Email' ? undefined : 'noopener noreferrer'}
-              className="contact__link"
-            >
-              <span className="contact__link-icon">{social.icon}</span>
-              {social.label}
-            </a>
-          ))}
+          {socials.map((social) => {
+            const content = (
+              <>
+                <span className="contact__link-icon">{social.icon}</span>
+                {social.label}
+              </>
+            )
+
+            if (!social.href) {
+              return (
+                <span key={social.label} className="contact__link contact__link--static">
+                  {content}
+                </span>
+              )
+            }
+
+            return (
+              <a
+                key={social.label}
+                href={social.href}
+                target={social.label === 'Email' ? undefined : '_blank'}
+                rel={social.label === 'Email' ? undefined : 'noopener noreferrer'}
+                className="contact__link"
+              >
+                {content}
+              </a>
+            )
+          })}
         </div>
       </motion.div>
     </section>

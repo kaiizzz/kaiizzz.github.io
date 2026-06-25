@@ -19,10 +19,19 @@
   --gradient: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-display: 'Outfit', var(--font-sans);
+  --font-brand: 'Floundery Gothic', var(--font-display);
   --radius: 16px;
   --radius-sm: 10px;
   --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
   --transition: 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@font-face {
+  font-family: 'Floundery Gothic';
+  src: url('/fonts/FloundaryGothicRegular-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 html {

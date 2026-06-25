@@ -12,7 +12,7 @@ const fadeUp = {
 
 export default function Hero() {
   return (
-    <section className="hero">
+    <section id="hero" className="hero">
       <div className="hero__content">
         <motion.p
           className="hero__eyebrow"
@@ -35,15 +35,28 @@ export default function Hero() {
           <span className="hero__name">{site.name}</span>
         </motion.h1>
 
-        <motion.p
+        <motion.div
           className="hero__tagline"
           variants={fadeUp}
           initial="hidden"
           animate="visible"
           custom={2}
         >
-          {site.tagline}
-        </motion.p>
+          <span className="hero__tagline-line">
+            {site.tagline.line1.prefix}
+            <a
+              href={site.flounderyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero__tagline-brand"
+            >
+              <span className="hero__tagline-company">{site.tagline.line1.company}</span>
+              <img src={site.logo} alt="" className="hero__tagline-logo" />
+            </a>
+            <span className="hero__tagline-suffix">{site.tagline.line1.suffix}</span>
+          </span>
+          <span className="hero__tagline-line">{site.tagline.line2}</span>
+        </motion.div>
 
         <motion.div
           className="hero__actions"

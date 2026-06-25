@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { navLinks, site } from '../data/site'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -19,16 +21,31 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="navbar__inner">
-        <a href="#" className="navbar__logo">
+        <Link to="/" className="navbar__logo">
           <span className="navbar__logo-dot" />
           {site.title}
-        </a>
+        </Link>
         <nav className="navbar__nav">
-          {navLinks.map((link) => (
-            <a key={link.id} href={`#${link.id}`} className="navbar__link">
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive =
+              link.to === '/education'
+                ? location.pathname === '/education'
+                : link.to === '/projects'
+                  ? location.pathname === '/projects'
+                : link.to === '/#hero'
+                  ? location.pathname === '/' && (!location.hash || location.hash === '#hero')
+                  : location.pathname === '/' && location.hash === link.to.replace('/', '')
+
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`navbar__link${isActive ? ' navbar__link--active' : ''}`}
+              >
+                {link.label}
+              </Link>
+            )
+          })}
         </nav>
       </div>
     </motion.header>

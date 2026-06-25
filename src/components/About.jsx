@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { site } from '../data/site'
 
-const skills = ['React', 'JavaScript', 'TypeScript', 'Node.js', 'Python', 'UI Design']
+const skills = ['Python', 'React', 'JavaScript', 'TypeScript', 'Node.js', 'Java', 'SQL', 'C#', 'C', 'Ada', 'UI Design', 'Machine Learning', 'Natural Language Processing', 'Artificial Intelligence']
 
 export default function About() {
   return (
@@ -17,16 +17,36 @@ export default function About() {
         <h2 className="section__title">A bit about me</h2>
       </motion.div>
 
-      <div className="about__grid">
-        <motion.div
-          className="card about__card"
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          <p className="about__bio">{site.bio}</p>
-        </motion.div>
+      <div className="about__layout">
+        <div className="about__top">
+          <motion.div
+            className="about__photo-outer"
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="about__photo-frame">
+              <img
+                src={site.photo}
+                alt={`Portrait of ${site.name}`}
+                className="about__photo"
+              />
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="card about__bio-card"
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            {site.bio.map((paragraph) => (
+              <p key={paragraph} className="about__bio">{paragraph}</p>
+            ))}
+          </motion.div>
+        </div>
 
         <motion.div
           className="card about__skills"
