@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { navLinks } from '../data/site'
+import { navLinks, site } from '../data/site'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -21,7 +21,7 @@ export default function Navbar() {
       <div className="navbar__inner">
         <a href="#" className="navbar__logo">
           <span className="navbar__logo-dot" />
-          Kaiizzz
+          {site.title}
         </a>
         <nav className="navbar__nav">
           {navLinks.map((link) => (

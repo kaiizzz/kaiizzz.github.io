@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <p>
-        © {year} {site.name}. Built with React & Vite.
+        © {year} {site.title}. Built with React & Vite.
       </p>
     </footer>
   )

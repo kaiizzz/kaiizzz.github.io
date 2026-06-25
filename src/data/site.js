@@ -1,7 +1,8 @@
 export const site = {
-  name: 'Kaiizzz',
+  title: 'billzhu',
+  name: 'Kailiang (Bill) Zhu',
   tagline: 'Building things on the web.',
-  bio: "Hi, I'm Kaiizzz — a developer who loves crafting clean interfaces and solving interesting problems. This is where I share my work and what I'm learning along the way.",
+  bio: "Hi, I'm Kailiang (Bill) Zhu — a developer who loves crafting clean interfaces and solving interesting problems. This is where I share my work and what I'm learning along the way.",
   email: 'your.email@example.com',
   links: {
     github: 'https://github.com/kaiizzz',
